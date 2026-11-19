@@ -1,21 +1,22 @@
 mod app;
 mod controllers;
 mod models;
-
-use models::projeto::Projeto;
+mod database;
 
 #[tokio::main]
-async fn main(){
+async fn main() {
 
-    let projeto = Projeto::novo(
-        1,
-        String::from("Rust CRUD"),
-        String::from("Meu primeiro sistema em Rust")
-    );
+    let _connection = match database::connection::connect() {
+        Ok(connection) => {
+            println!("Banco de dados conectado!");
+            connection
+        }
 
-    println!("ID: {}", projeto.id);
-    println!("Título: {}", projeto.titulo);
-    println!("Descrição: {}", projeto.descricao);
+        Err(error) => {
+            eprintln!("Erro ao conectar ao banco: {}", error);
+            return;
+        }
+    };
 
     app::start().await;
 }
