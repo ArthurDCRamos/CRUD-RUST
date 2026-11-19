@@ -40,23 +40,5 @@ impl Projeto {
         &self.descricao
     }
 
-    pub fn atualizar(
-        &mut self,
-        titulo: String,
-        descricao: String,
-    ) -> Result<(), String> {
-        if titulo.trim().is_empty() {
-            return Err("O título não pode estar vazio.".to_string());
-        }
-
-        if descricao.trim().is_empty() {
-            return Err("A descrição não pode estar vazio.".to_string());
-        }
-
-        self.titulo = titulo;
-        self.descricao = descricao;
-
-        Ok(())
-    }
-
+   
 }

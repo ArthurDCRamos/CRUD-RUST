@@ -7,61 +7,84 @@
     <title>Rust CRUD</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             background: #111;
             color: #eee;
             font-family: Arial, sans-serif;
-            padding: 40px;
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
         }
 
-        input, button {
-            padding: 10px;
-            margin: 5px;
+        a, button {
+            cursor: pointer;
+        }
+
+        a {
+            color: #df9f20;
+            text-decoration: none;
+        }
+
+        .novo {
+            display: inline-block;
+            background: #df9f20;
+            color: #111;
+            padding: 12px 18px;
+            border-radius: 5px;
+            margin: 20px 0;
         }
 
         table {
-            margin-top: 30px;
             width: 100%;
             border-collapse: collapse;
         }
 
-        td, th {
-            padding: 12px;
+        th, td {
+            padding: 14px;
             border-bottom: 1px solid #333;
             text-align: left;
         }
+
+        button {
+            background: #9e3333;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+
+        form {
+            display: inline;
+        }
     </style>
 </head>
+
 <body>
 
     <h1>Gerenciamento de Projetos</h1>
 
-    <form>
-        <input type="text" placeholder="Nome do projeto">
-        <input type="text" placeholder="Descrição">
-        <button type="button">Cadastrar</button>
-    </form>
+    <p>Controle seus projetos cadastrados.</p>
+
+    <a class="novo" href="/projetos/novo">
+        + Novo projeto
+    </a>
 
     <table>
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Projeto</th>
+                <th>Título</th>
                 <th>Descrição</th>
                 <th>Ações</th>
             </tr>
         </thead>
 
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>Meu primeiro projeto</td>
-                <td>Aprendendo Rust</td>
-                <td>
-                    <button>Editar</button>
-                    <button>Excluir</button>
-                </td>
-            </tr>
+            {{PROJETOS}}
         </tbody>
     </table>
 

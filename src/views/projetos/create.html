@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo Projeto</title>
+
+    <style>
+        body {
+            background: #111;
+            color: #eee;
+            font-family: Arial;
+            max-width: 600px;
+            margin: 60px auto;
+            padding: 20px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0 20px;
+            background: #222;
+            color: white;
+            border: 1px solid #444;
+        }
+
+        button {
+            padding: 12px 20px;
+            background: #df9f20;
+            border: none;
+            cursor: pointer;
+        }
+
+        a {
+            color: #df9f20;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Novo Projeto</h1>
+
+    <form action="/projetos" method="POST">
+
+        <label>Título</label>
+        <input type="text" name="titulo" required>
+
+        <label>Descrição</label>
+        <textarea name="descricao" required></textarea>
+
+        <button type="submit">Cadastrar projeto</button>
+
+    </form>
+
+    <p><a href="/">Voltar</a></p>
+
+</body>
+</html>
+

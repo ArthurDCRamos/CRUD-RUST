@@ -2,11 +2,12 @@ mod app;
 mod controllers;
 mod models;
 mod database;
+mod repositories;
 
 #[tokio::main]
 async fn main() {
 
-    let _connection = match database::connection::connect() {
+    let connection = match database::connection::connect() {
         Ok(connection) => {
             println!("Banco de dados conectado!");
             connection
@@ -18,5 +19,5 @@ async fn main() {
         }
     };
 
-    app::start().await;
+    app::start(connection).await;
 }
